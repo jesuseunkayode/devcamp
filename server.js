@@ -1,5 +1,7 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 const dotenv = require('dotenv');
+const morgan = require('morgan');
 const bootcamps = require('./routes/bootcamps');
 const connectDB = require('./config/db');
 
@@ -12,6 +14,9 @@ const app = express();
 //mount the bootcamps route
 app.use('/api/v1/bootcamps', bootcamps)
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(bodyParser.json())
+app.use(morgan('dev'));
 
 
 
