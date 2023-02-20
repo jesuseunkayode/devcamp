@@ -1,31 +1,34 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const app = express();
 const dotenv = require('dotenv');
-const morgan = require('morgan');
+//const morgan = require('morgan');
 const bootcamps = require('./routes/bootcamps');
 const connectDB = require('./config/db');
 
 
 //load the env variables
 dotenv.config({path: './config/config.env'})
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-const app = express();
 
 //mount the bootcamps route
 app.use('/api/v1/bootcamps', bootcamps)
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(bodyParser.json())
-app.use(morgan('dev'));
 
+//app.use(morgan('dev'));
 
 
 const PORT = process.env.PORT || 5000;
 const start = async() => {
      try {
        await connectDB()
-       app.listen(PORT, console.log(`The server is running in ${process.env.NODE_ENV} mode at port ${PORT}`))
+      const server = app.listen(PORT, console.log(`The server is running in ${process.env.NODE_ENV} mode at port ${PORT}`))
         
+      //handle unhandle promise
+      process.on('unhandle promise', (error, promise) => {
+        console.log(`Error: ${error.message}`);
+        server.close(() => process.exit(1));
+      })
      } catch (error) {
         console.error(error)
      }

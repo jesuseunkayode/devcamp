@@ -1,13 +1,8 @@
 const mongoose = require('mongoose');
 
 const BootcampSchema = new mongoose.Schema({
-    flask: {
-        type: String,
-        unique: true
-    },
-    drum: {
-        type: String,
-    },
+    flask: String,  
+    drum: String,
     createdAt: {
         type: Date,
         default: Date.now()
