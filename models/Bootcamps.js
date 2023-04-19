@@ -1,12 +1,49 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const BootcampSchema = new mongoose.Schema({
-    flask: String,  
-    drum: String,
+    name: {
+        type : String,
+        required: [true, "Please enter your name here"],
+        unique : true
+    },  
+
+    slug: String,
+    description: {
+        type: String,
+        required: [true, "Please desribe your bootcamp"],
+    },
+
+    course: {
+        type : [String],
+        enum: ['Frontend', 'Backend', 'Fullstack'],
+        required: [true, "Please select a course of your choice"],
+    },
+
+    email : {
+        type : String,
+        match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/],
+        required: [true, "Please enter your email address here"],
+        unique : true
+    },
+    phone: {
+        type: Number,
+        required: [true,"please provide your phone number"]
+    },
+
+    address: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now()
     }
+})
+
+
+BootcampSchema.pre('save', function(next){
+    this.slug = slugify(this.name, {lower: true})
+    next();
 })
 
 

@@ -20,7 +20,6 @@ app.use('/api/v1/bootcamps', bootcamps)
 
 const PORT = process.env.PORT || 5000;
 const start = async() => {
-     try {
        await connectDB()
       const server = app.listen(PORT, console.log(`The server is running in ${process.env.NODE_ENV} mode at port ${PORT}`))
         
@@ -29,9 +28,6 @@ const start = async() => {
         console.log(`Error: ${error.message}`);
         server.close(() => process.exit(1));
       })
-     } catch (error) {
-        console.error(error)
-     }
 }
 
 start();
