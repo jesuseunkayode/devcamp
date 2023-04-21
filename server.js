@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
+const errorHandler = require('./middleware/errorHandler')
 const dotenv = require('dotenv');
-//const morgan = require('morgan');
 const bootcamps = require('./routes/bootcamps');
 const connectDB = require('./config/db');
 
@@ -14,9 +14,7 @@ app.use(express.urlencoded({extended: true}));
 
 //mount the bootcamps route
 app.use('/api/v1/bootcamps', bootcamps)
-
-//app.use(morgan('dev'));
-
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000;
 const start = async() => {

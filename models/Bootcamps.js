@@ -32,7 +32,25 @@ const BootcampSchema = new mongoose.Schema({
     },
 
     address: {
-        type: String
+        type: String,
+        required: [true, 'Please enter your current address']
+    },
+    location: {
+        type: String,
+        enum:['Point'],
+        coordinates:{
+            type: [Number],
+            index: 'sdsphere'
+        },
+        formattedAddress: String,
+        street: String,
+        city: String,
+        state: String,
+        country: String
+    },
+    photo: {
+        type: String,
+        default: "no-phone.jp"
     },
     createdAt: {
         type: Date,
