@@ -1,0 +1,48 @@
+[{
+    "name": "javascript development",
+    "description": "it is fun to learn and capable to build any web apps",
+    "course": "Frontend",
+    "email": "kay@yahoo.com",
+    "phone": 8051502525,
+    "address": "42 lizzy falana street haruna ikorodu"
+    
+},
+{
+    "name": "php application dev",
+    "description": "most popular programming language of the web",
+    "course": "Backend",
+    "email": "samson@yahoo.com",
+    "phone": 8050552225,
+    "address": "14 odunuga street opebi ikeja lagos state"
+    
+},{
+    "name": "ruby on rail master class",
+    "description": "building anything is possible with this language",
+    "course": "Fullstack",
+    "email": "owolay@gmail.com",
+    "phone": 8085850606,
+    "address": "400, herbert macaulay way yaba lagos state"
+    
+},
+
+{
+    "name": "java ninja",
+    "description": "if you know the language very well, it will make it easy to for you",
+    "course": "Fullstack",
+    "email": "kayooode@yahoo.com",
+    "phone": 80750502545,
+    "address": "4 agungi road off lekki epe expressway, agungi lekki lagos state"
+    
+},
+
+{
+    "name": "python the easiest",
+    "description": "it makes it easy for you learn and build any web apps quickly",
+    "course": "Fullstack",
+    "email": "blessblessing@yahoo.com",
+    "phone": 8050522425,
+    "address": "80, adebayo osho street ejigbo lagos state"
+    
+}
+
+]

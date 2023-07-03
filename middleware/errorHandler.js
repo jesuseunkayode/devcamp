@@ -1,5 +1,5 @@
 const ErrorResponse = require("../utility/errorResponse")
-const errorHnadler = (err, req, res, next) => {
+const errorHandler = (err, req, res, next) => {
      let error = {...err}
 
       console.log(err.stack)
@@ -29,4 +29,4 @@ const errorHnadler = (err, req, res, next) => {
       })
 }
 
-module.exports = errorHnadler;
+module.exports = errorHandler;
